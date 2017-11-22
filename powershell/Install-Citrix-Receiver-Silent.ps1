@@ -32,10 +32,10 @@ $Path = "C:\Windows\Installers\"
 $DownloadPage = "https://www.citrix.com/downloads/citrix-receiver/windows/receiver-for-windows-latest.html#ctx-dl-eula"
 $Installer = "CitrixReceiver.exe"
 $DownloadPath = ( 
-    #Download the HTML code for the dl page and format it so it can be searched
+    # Download the HTML code for the dl page and format it so it can be searched
     Invoke-WebRequest $DownloadPage | fl * | Out-String -Stream |
-    #Grab the first line that contains the download path
-    sls -Pattern "rel.*exe\?" | select-object -First 1 |
+    # Grab the first line that contains the download path
+    sls -Pattern "rel.*exe" | select-object -First 1 |
     # Use some regex to strip out unwanted bits.
     %{$_ -replace ".*rel=.",""} | %{$_ -replace "[^a-zA-z\d]*$",""} 
 )
