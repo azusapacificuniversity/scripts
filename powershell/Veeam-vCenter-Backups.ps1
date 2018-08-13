@@ -153,7 +153,6 @@ If ($EnableNotification) {
     $msummary = $msummary + "Total backup time was: $ElapsedTime<br />"
     If ($EnableEncryption) { $msummary = $msummary + "The backups were encrypted." }
     $msummary = $msummary + "Backups are scheduled to be deleted: $Retention<br /><br />"
-    $mbody = Get-VM -Server $HostName -Location $LocationName
     $mbody = $mbody | ConvertTo-Html -head $style | Out-String
     $Message = New-Object System.Net.Mail.MailMessage $EmailFrom, $EmailTo
     $Message.Subject = $EmailSubject
