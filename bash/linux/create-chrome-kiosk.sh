@@ -377,7 +377,7 @@ echo "yes" > /home/kiosk/.config/gnome-initial-setup-done
 # Modify magic file for citrix mime-type
 if [ $citrix = yes ] || [ $citrixweb = yes ] ; then
 	echo "# Citrix File Types" >> /usr/share/misc/magic
-	echo "20	search/50	WFClient	Citrix Client File" >> /usr/share/misc/magic
+	echo "35	string		[WFClient]	Citrix Client File" >> /usr/share/misc/magic
 	echo "!:mime	application/x-ica" >> /usr/share/misc/magic
 	cd /usr/share/misc
 	file -C -m /usr/share/misc/magic 
