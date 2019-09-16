@@ -23,7 +23,6 @@
 .EXAMPLE 
 	[PS] C:\>.\ScaleXenAppServers.ps1
 #>
-
 Asnp Citrix.*
 
 # List of computers to scale up/down
@@ -97,7 +96,7 @@ foreach ($Server in $ServerList){
             Slack-Message "Turned on $Server for production availability."
 	    }
     }
-    # Since we arene't in Production Hours, we should start scaling down.
+    # Since we aren't in Production Hours, we should start scaling down.
     else{
       if ($ServerMode -eq $false){
             # Turn on Maintenance mode to start scaling down.
